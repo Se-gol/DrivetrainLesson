@@ -23,6 +23,7 @@ public class RobotContainer {
 
     public RobotContainer() {
         configureButtonBindings();
+        configureDefaultCommand();
     }
 
     private void configureButtonBindings() {
