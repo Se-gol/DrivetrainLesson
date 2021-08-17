@@ -19,6 +19,5 @@ public class DrivetrainDefaultCommand extends CommandBase {
     public void execute() {
         drivetrain.setPowerL(xboxController.getY(GenericHID.Hand.kLeft));
         drivetrain.setPowerR(xboxController.getY(GenericHID.Hand.kRight));
-
     }
 }
