@@ -18,6 +18,7 @@ public final class Constants {
 
     public static final class Drivetrain {
         public static  final double JOYSTICK_DEADBAND = 0.05;
+        public static final double TICKS_PER_METER = 1;
 
     }
 

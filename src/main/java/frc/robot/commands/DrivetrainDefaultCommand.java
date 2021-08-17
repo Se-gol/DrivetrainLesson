@@ -33,8 +33,13 @@ public class DrivetrainDefaultCommand extends CommandBase {
         drivetrain.setRightPower(deadRight);
     }
 
+    /**
+     * term for deadband
+     * @param value - the joystick value [-1, 1]
+     * @return the area where there is a small movement on the joystick nothing happens.
+     */
     private double deadband(double value) {
-        if (value > Constants.Drivetrain.JOYSTICK_DEADBAND || value < -Constants.Drivetrain.JOYSTICK_DEADBAND) {
+        if (Math.abs(value) > Constants.Drivetrain.JOYSTICK_DEADBAND) {
             return value;
         } else {
             return 0;
