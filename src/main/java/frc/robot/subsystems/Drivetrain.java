@@ -22,21 +22,22 @@ public class Drivetrain extends SubsystemBase {
         flMotor.setInverted(Ports.Drivetrain.IS_FL_INVERTED);
         rlMotor.setInverted(Ports.Drivetrain.IS_RL_INVERTED);
 
-        frMotor.config_kP(0, 0);
-        frMotor.config_kI(0, 0);
-        frMotor.config_kD(0, 0);
+        frMotor.config_kP((int) Constants.Drivetrain.FR_MOTORS_SLOTDX_P, Constants.Drivetrain.FR_MOTORS_VALUE_P);
+        frMotor.config_kI((int) Constants.Drivetrain.FR_MOTORS_SLOTDX_I, Constants.Drivetrain.FR_MOTORS_VALUE_I);
+        frMotor.config_kD((int) Constants.Drivetrain.FR_MOTORS_SLOTDX_D, Constants.Drivetrain.FR_MOTORS_VALUE_D);
 
-        flMotor.config_kP(0, 0);
-        flMotor.config_kI(0, 0);
-        flMotor.config_kD(0, 0);
+        flMotor.config_kP((int) Constants.Drivetrain.FL_MOTORS_SLOTDX_P, Constants.Drivetrain.FL_MOTORS_VALUE_P);
+        flMotor.config_kI((int) Constants.Drivetrain.FL_MOTORS_SLOTDX_I, Constants.Drivetrain.FL_MOTORS_VALUE_I);
+        flMotor.config_kD((int) Constants.Drivetrain.FL_MOTORS_SLOTDX_D, Constants.Drivetrain.FL_MOTORS_VALUE_D);
 
-        rrMotor.config_kP(0, 0);
-        rrMotor.config_kI(0, 0);
-        rrMotor.config_kD(0, 0);
+        rrMotor.config_kP((int) Constants.Drivetrain.RR_MOTORS_SLOTDX_P, Constants.Drivetrain.RR_MOTORS_VALUE_P);
+        rrMotor.config_kI((int) Constants.Drivetrain.RR_MOTORS_SLOTDX_I, Constants.Drivetrain.RR_MOTORS_VALUE_I);
+        rrMotor.config_kD((int) Constants.Drivetrain.RR_MOTORS_SLOTDX_D, Constants.Drivetrain.RR_MOTORS_VALUE_D);
 
-        rlMotor.config_kP(0, 0);
-        rlMotor.config_kI(0, 0);
-        rlMotor.config_kD(0, 0);
+        rlMotor.config_kP((int) Constants.Drivetrain.RL_MOTORS_SLOTDX_P, Constants.Drivetrain.RL_MOTORS_VALUE_P);
+        rlMotor.config_kI((int) Constants.Drivetrain.RL_MOTORS_SLOTDX_I, Constants.Drivetrain.RL_MOTORS_VALUE_I);
+        rlMotor.config_kD((int) Constants.Drivetrain.RL_MOTORS_SLOTDX_D, Constants.Drivetrain.RL_MOTORS_VALUE_D);
+
     }
 
     /**
@@ -55,12 +56,17 @@ public class Drivetrain extends SubsystemBase {
     /**
      * get velocity of right&left
      *
-     * @return- ticks per 100ms
+     * @return- the velocity of the right side of the drivetrain. [m/s]
      */
     public double getRightVelocity() {
-        double ticks100ms = frMotor.getSelectedSensorVelocity();
-        return unitModel.toVelocity(ticks100ms);  // [m/s]
+        double meterPerSecond = frMotor.getSelectedSensorVelocity();
+        return unitModel.toVelocity(meterPerSecond);  // [m/s]
     }
+
+    public double getLeftVelocity() {
+        return unitModel.toVelocity(flMotor.getSelectedSensorVelocity());
+    }
+
 
     /**
      * set velocity of right&left
@@ -70,10 +76,6 @@ public class Drivetrain extends SubsystemBase {
 
     public void setRightVelocity(double velocity) {
         frMotor.set(ControlMode.Velocity, unitModel.toTicks100ms(velocity));
-    }
-
-    public double getLeftVelocity() {
-        return unitModel.toVelocity(flMotor.getSelectedSensorVelocity());
     }
 
     public void setLeftVelocity(double velocity) {

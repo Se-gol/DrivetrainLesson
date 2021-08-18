@@ -17,8 +17,41 @@ import frc.robot.subsystems.Drivetrain;
 public final class Constants {
 
     public static final class Drivetrain {
-        public static  final double JOYSTICK_DEADBAND = 0.05;
+        public static final double JOYSTICK_DEADBAND = 0.05;
         public static final double TICKS_PER_METER = 1;
+
+        public static final double FR_MOTORS_SLOTDX_P = 0;
+        public static final double FR_MOTORS_SLOTDX_I = 0;
+        public static final double FR_MOTORS_SLOTDX_D = 0;
+
+        public static final double FR_MOTORS_VALUE_P = 0;
+        public static final double FR_MOTORS_VALUE_I = 0;
+        public static final double FR_MOTORS_VALUE_D = 0;
+
+        public static final double FL_MOTORS_SLOTDX_P = 0;
+        public static final double FL_MOTORS_SLOTDX_I = 0;
+        public static final double FL_MOTORS_SLOTDX_D = 0;
+
+        public static final double FL_MOTORS_VALUE_P = 0;
+        public static final double FL_MOTORS_VALUE_I = 0;
+        public static final double FL_MOTORS_VALUE_D = 0;
+
+        public static final double RR_MOTORS_SLOTDX_P = 0;
+        public static final double RR_MOTORS_SLOTDX_I = 0;
+        public static final double RR_MOTORS_SLOTDX_D = 0;
+
+        public static final double RR_MOTORS_VALUE_P = 0;
+        public static final double RR_MOTORS_VALUE_I = 0;
+        public static final double RR_MOTORS_VALUE_D = 0;
+
+        public static final double RL_MOTORS_SLOTDX_P = 0;
+        public static final double RL_MOTORS_SLOTDX_I = 0;
+        public static final double RL_MOTORS_SLOTDX_D = 0;
+
+        public static final double RL_MOTORS_VALUE_P = 0;
+        public static final double RL_MOTORS_VALUE_I = 0;
+        public static final double RL_MOTORS_VALUE_D = 0;
+
 
     }
 
