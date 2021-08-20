@@ -15,6 +15,8 @@ public class Drivetrain extends SubsystemBase {
 
 
     public Drivetrain() {
+
+        frMotor.setSensorPhase(Ports.Drivetrain.FR_SENSOR_PHASE);
         rrMotor.follow(frMotor);
         rlMotor.follow(flMotor);
         frMotor.setInverted(Ports.Drivetrain.IS_FR_INVERTED);
