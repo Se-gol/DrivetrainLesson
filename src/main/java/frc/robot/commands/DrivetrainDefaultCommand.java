@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Drivetrain;
 
@@ -17,7 +18,17 @@ public class DrivetrainDefaultCommand extends CommandBase {
 
     @Override
     public void execute() {
-        drivetrain.setPowerL(xboxController.getY(GenericHID.Hand.kLeft));
-        drivetrain.setPowerR(xboxController.getY(GenericHID.Hand.kRight));
+        drivetrain.setPowerL(
+                deadband(xboxController.getY(GenericHID.Hand.kLeft))
+        );
+        drivetrain.setPowerR(
+                deadband(xboxController.getY(GenericHID.Hand.kRight))
+        );
+    }
+
+    private double deadband(double drift) {
+        if (Math.abs(drift) < Constants.Drivetrain.JOYSTICK_DRIFT)
+            return 0;
+        return drift;
     }
 }
