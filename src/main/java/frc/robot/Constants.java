@@ -16,10 +16,10 @@ public final class Constants {
 
     public static final int TICKS_PER_METER = 0;
 
+
     public final class Drivetrain {
-        public static final int FR_kP = 0;
-        public static final int RR_kP = 0;
-        public static final int FL_kP = 0;
-        public static final int RL_kP = 0;
+        public static final double DEADBAND = 0.05;
+        public static final double MAX_VELOCITY = 20;
+        public static final double kP = 0.2;
     }
 }

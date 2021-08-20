@@ -4,6 +4,7 @@ public class UnitModel {
     private final double ticksPerUnit;
 
     public UnitModel(double ticksPerUnit) {
+
         this.ticksPerUnit = ticksPerUnit;
     }
 
@@ -22,6 +23,7 @@ public class UnitModel {
      * @return the corresponding number of ticks
      */
     public int toTicks(double units) {
+
         return (int) (ticksPerUnit * units);
     }
 
@@ -30,7 +32,7 @@ public class UnitModel {
      * @param ticks100ms the number of ticks per 100ms
      * @return the corresponding velocity value [m/s]
      */
-    public double toVelocity(double ticks100ms){
+    public double toVelocity(double ticks100ms) {
         return (ticks100ms / ticksPerUnit) * 10;
     }
 
